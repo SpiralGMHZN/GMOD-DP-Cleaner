@@ -17,7 +17,7 @@ local gasprops={
 }
 
 hook.Add("InitPostEntity","RemoveShittyGasStations",function()
-for k, v in pairs(ents.FindByClass("prop_dynamic")) do
-  if table.HasValue(gasprops,v:EntIndex()) then v:Remove() end
+for k, v in pairs(gasprops) do
+  if Entity(k) && IsValid(Entity(k)) then Entity(k):Remove() end
 end
 end)
